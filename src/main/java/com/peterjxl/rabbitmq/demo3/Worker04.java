@@ -13,6 +13,8 @@ public class Worker04 {
 
     public static void main(String[] args) throws Exception{
         Channel channel = RabbitMQUtils.getChannel();
+        int prefetchCount = 5;
+        channel.basicQos(prefetchCount);
         System.out.println("C2消费者等待消息处理，处理时间较长（效率低）...");
 
         // 采用手动应答

@@ -35,7 +35,7 @@ public class Producer {
          * 第四个参数：最后一个消费者断开连接后，是否自动删除队列，默认false，表示不自动删除
          * 第五个参数：队列的其他参数，如：存活时间
          */
-        channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+        channel.queueDeclare(QUEUE_NAME, true, false, false, null);
 
         // 定义要发送的消息
         String message = "Hello World";

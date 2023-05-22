@@ -12,6 +12,8 @@ public class Worker03 {
 
     public static void main(String[] args) throws Exception{
         Channel channel = RabbitMQUtils.getChannel();
+        int prefetchCount = 2;
+        channel.basicQos(prefetchCount);
         System.out.println("C1消费者等待消息处理，处理时间较短（效率高）...");
 
         // 采用手动应答
@@ -20,7 +22,7 @@ public class Worker03 {
             // 接收消息并处理
             System.out.println("接收到消息：" + new String(message.getBody()));
             // 休眠1秒
-            SleepUtils.sleep(1);
+            SleepUtils.sleep(10);
             channel.basicAck(message.getEnvelope().getDeliveryTag(), false);
         }, consumerTag -> {
             System.out.println("消息消费被中断");
