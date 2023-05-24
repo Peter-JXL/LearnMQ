@@ -1,7 +1,6 @@
 package com.peterjxl.rabbitmq.demo7;
 
 import com.peterjxl.rabbitmq.util.RabbitMQUtils;
-import com.rabbitmq.client.BuiltinExchangeType;
 import com.rabbitmq.client.Channel;
 
 public class DirectLogs {
